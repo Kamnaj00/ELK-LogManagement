@@ -87,6 +87,8 @@ output.logstash:
   hosts: ["10.10.0.10:5044"]
   ssl.certificate_authorities: ["/etc/filebeat/certs/ca.crt"]
 
+```
+
 
 ### Winlogbeat (Windows)
 
@@ -100,6 +102,8 @@ winlogbeat.event_logs:
 output.logstash:
   hosts: ["10.10.0.10:5044"]
   ssl.enabled: true
+
+```
 
 
 ## 5. Evaluierung & Tests
