@@ -24,7 +24,7 @@ graph TD
   Ubuntu[Ubuntu VM + Filebeat] -->|Logs| Elasticsearch
   Elasticsearch --> Kibana[Kibana Dashboard]
 
-## Status
+# Status
 ✅ Elasticsearch läuft  
 ✅ Filebeat sendet Logs  
 ✅ Winlogbeat funktioniert  
