@@ -20,13 +20,14 @@ Dieses Projekt realisiert ein zentrales Log-Management-System auf Basis des **EL
 
 
 ```mermaid
+
 graph TD
   Windows[Windows Server + Winlogbeat] -->|Logs| Elasticsearch
   Ubuntu[Ubuntu VM + Filebeat] -->|Logs| Elasticsearch
   Elasticsearch --> Kibana[Kibana Dashboard]
 
 
-# Status
+## Status
 
 ✅ Elasticsearch läuft  
 ✅ Filebeat sendet Logs  
