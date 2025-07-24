@@ -1,6 +1,6 @@
-Projektdokumentation – Zentrales Log-Management mit dem ELK-Stack
+# Projektdokumentation – Zentrales Log-Management mit dem ELK-Stack
 
-1. Zielsetzung und Motivation
+## 1. Zielsetzung und Motivation
 
 In modernen IT-Infrastrukturen ist die zentrale Erfassung und Auswertung von Logdaten essenziell für:
 
@@ -19,11 +19,11 @@ Die Motivation ergibt sich aus dem Bedarf an:
 - Vorbereitung auf spätere Erweiterungen wie Alerting oder SIEM-Funktionen
 
 
-2. Netzwerk- & Systemarchitektur
+## 2. Netzwerk- & Systemarchitektur
 
 Das System wurde in einer virtualisierten Testumgebung auf **Proxmox VE** realisiert. Es besteht aus folgenden Komponenten:
 
-- Infrastrukturüberblick
+### - Infrastrukturüberblick
 
 | System                 | Funktion                             | Plattform   |
 |------------------------|--------------------------------------|-------------|
@@ -32,7 +32,7 @@ Das System wurde in einer virtualisierten Testumgebung auf **Proxmox VE** realis
 | `ubuntu-vm`            | Linux Client mit Filebeat            | KVM         |
 | `windows-server-vm`    | Windows Client mit Winlogbeat        | KVM         |
 
-- Datenfluss
+### - Datenfluss
 
 Die Logdaten folgen dem folgenden Pfad:
 
@@ -42,16 +42,16 @@ Filebeat / Winlogbeat → Logstash → Elasticsearch → Kibana
 Das zugehörige **Mermaid-Diagramm** befindet sich unter [`architecture/datenfluss.mmd`](../architecture/datenfluss.mmd).
 
 
-3. Sicherheitskonzept
+## 3. Sicherheitskonzept
 
-3.1. TLS-Verschlüsselung
+### 3.1. TLS-Verschlüsselung
 
 Die gesamte Kommunikation zwischen den Komponenten erfolgt verschlüsselt über **SSL/TLS**, um Datenintegrität und Vertraulichkeit sicherzustellen.
 
 - Zertifikate wurden mit dem Tool `elasticsearch-certutil` erzeugt
 - Pfade zu Zertifikaten sind in den jeweiligen Konfigurationsdateien (`filebeat.yml`, `winlogbeat.yml`, `logstash.conf`, `elasticsearch.yml`) hinterlegt
 
-3.2. Authentifizierung
+### 3.2. Authentifizierung
 
 Elasticsearch nutzt die integrierte Benutzerverwaltung:
 
@@ -60,20 +60,20 @@ Elasticsearch nutzt die integrierte Benutzerverwaltung:
 - Verhinderung unautorisierter API-Zugriffe
 
 
-4. Konfiguration & Implementierung
+## 4. Konfiguration & Implementierung
 
-4.1. Elasticsearch
+### 4.1. Elasticsearch
 
 - Konfiguriert mit aktivierter Authentifizierung (`xpack.security.enabled: true`)
 - Speicherort für strukturierte Logs, Suchindexe und Metadaten
 
-4.2. Logstash
+### 4.2. Logstash
 
 - Konfigurationsdatei `logstash.conf` definiert die Input-, Filter- und Output-Blöcke
 - TLS-Verbindung mit Beats
 - Optionale Filter zur Formatierung der Logs
 
-Filebeat (Linux)
+### Filebeat (Linux)
 
 ```yaml
 
@@ -88,8 +88,7 @@ output.logstash:
   ssl.certificate_authorities: ["/etc/filebeat/certs/ca.crt"]
 
 
-
-Winlogbeat (Windows)
+### Winlogbeat (Windows)
 
 ```yaml
 
@@ -103,9 +102,9 @@ output.logstash:
   ssl.enabled: true
 
 
-5. Evaluierung & Tests
+## 5. Evaluierung & Tests
 
-5.1. Testkomponente Ergebnis
+### 5.1. Testkomponente Ergebnis
 
 
 | Testkomponente           | Ergebnis                     |
@@ -118,7 +117,7 @@ output.logstash:
 | Zugriffskontrolle Kibana | ✅ Login-Seite aktiv         |
 
 
-Screenshots:
+## - Screenshots:
 
 Die wichtigsten Ansichten sind unter screenshots/ abgelegt:
 
@@ -128,7 +127,7 @@ Die wichtigsten Ansichten sind unter screenshots/ abgelegt:
 
 ✅ Konfigurationsbeispiele
 
-6. Herausforderungen & Lösungen
+## 6. Herausforderungen & Lösungen
 
 | Herausforderung                      | Lösung                                                |
 | ------------------------------------ | ----------------------------------------------------- |
@@ -138,12 +137,12 @@ Die wichtigsten Ansichten sind unter screenshots/ abgelegt:
 | Visualisierung von Feldern in Kibana | Dashboards importiert oder angepasst                  |
 
 
-7. Fazit & Ausblick
+## 7. Fazit & Ausblick
 
 Dieses Projekt demonstriert erfolgreich die Implementierung einer sicheren, zentralen Log-Analyse-Plattform. Alle Kernkomponenten funktionieren wie vorgesehen und bieten eine solide Basis für weiterführende Projekte.
 
 
-Mögliche Erweiterungen:
+### Mögliche Erweiterungen:
 
 ✅ Alerting mit Elastalert oder Kibana Alerting Rules
 
@@ -154,7 +153,8 @@ Mögliche Erweiterungen:
 ✅ Einbindung in ein Security Information and Event Management (SIEM)
 
 
-Autor
+### Autor
+
 Kamal Najib
 Fachinformatiker Systemintegration 
 
