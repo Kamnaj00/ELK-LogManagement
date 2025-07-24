@@ -2,37 +2,45 @@
 .DS_Store
 Thumbs.db
 
-# Editor-Dateien
-.vscode/
+# Proxmox, Docker & Container (falls genutzt)
+*.qcow2
+*.img
+*.iso
+
+# Logs & temporäre Dateien
+*.log
+*.tmp
+*.pid
 *.swp
 *.swo
 
-# Python-bezogene (falls Skripte vorhanden)
+# Elastic Zertifikate und private Keys (sicherheitsrelevant, nicht ins Repo!)
+**/certs/
+**/*.key
+**/*.pem
+**/*.p12
+
+# Beats temporäre Dateien
+filebeat/data/
+winlogbeat/data/
+
+# Editor-spezifische Dateien
+.vscode/
+.idea/
+*.iml
+
+# Python Bytecode (falls Skripte vorhanden)
 __pycache__/
-*.pyc
-venv/
+*.py[cod]
 
-# Log-Dateien
-*.log
-
-# Beats eigene temporäre Dateien
-*.yml.save
-*.yml~
-
-# Kibana Downloads oder temporäre Dateien (falls)
-.kibana/
-.kibana_*
-
-# Secrets oder Konfigurationsdateien mit sensiblen Daten (wenn vorhanden)
-secrets.yml
-*.key
-*.pem
-
-# Backup Dateien
+# Backup-Dateien
 *.bak
-*.backup
+*.old
+*~
 
-# Windows spezifisch
-ehthumbs.db
-Desktop.ini
+# Node.js (falls Web oder Kibana Plugins entwickelt werden)
+node_modules/
+
+# Sonstige sensible Konfigurationsdateien (z.B. Secrets)
+secret.yml
 

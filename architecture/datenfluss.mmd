@@ -1,0 +1,4 @@
+graph TD
+  Windows[Windows Server mit Winlogbeat] -->|Logs| Elasticsearch
+  Ubuntu[Ubuntu VM mit Filebeat] -->|Logs| Elasticsearch
+  Elasticsearch --> Kibana[Kibana Dashboard]
