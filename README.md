@@ -1,27 +1,26 @@
-X# 🔍 ELK Log Management Projekt
+# 🔍 ELK Log Management Projekt
 
 ## 🧾 Projektbeschreibung
 
 Dieses Projekt realisiert ein zentrales Log-Management-System auf Basis des **ELK-Stacks** (Elasticsearch, Logstash, Kibana) mit Unterstützung von **Beats** (Filebeat & Winlogbeat). Ziel ist es, Systemereignisse zentral zu erfassen, zu analysieren und visuell darzustellen. Das Setup wurde in einer virtualisierten Umgebung mit **Proxmox** realisiert.
 
----
 
 ## 🔧 Infrastruktur:
 
  **Hypervisor:** Proxmox VE
-- **Container:**  
+- **Container:** 
   - `elk-container` mit Elasticsearch + Kibana
-- **Virtuelle Maschinen (VMs):**  
-  - Ubuntu-VM mit Filebeat  
+- **Virtuelle Maschinen (VMs):** 
+  - Ubuntu-VM mit Filebeat 
   - Windows Server VM mit Winlogbeat
 
 
 ## Datenfluss
 
 
-```mermaid
+ ```mermaid
 
-graph TD
+ graph TD
   Windows[Windows Server + Winlogbeat] -->|Logs| Elasticsearch
   Ubuntu[Ubuntu VM + Filebeat] -->|Logs| Elasticsearch
   Elasticsearch --> Kibana[Kibana Dashboard]
@@ -30,8 +29,11 @@ graph TD
 ## Status
 
 ✅ Elasticsearch läuft  
+
 ✅ Filebeat sendet Logs  
+
 ✅ Winlogbeat funktioniert  
+
 ✅ Dashboards in Kibana eingerichtet
 
 
