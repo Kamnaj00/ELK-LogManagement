@@ -15,3 +15,28 @@ output.logstash:
   ssl.key: "/etc/filebeat/certs/filebeat.key"
 
 Hinweis: Ersetze <IP-ODER-HOSTNAME-VON-LOGSTASH> mit der echten IP oder dem DNS-Namen deines Logstash-Servers (z. B. 10.10.0.10). Passe die Zertifikatpfade ggf. an dein System an.
+
+
+
+
+---
+
+**Variante 2:** Wenn du unbedingt alles im Codeblock willst, dann kommentiere den Hinweis (YAML-Kommentar):
+
+```yaml
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/syslog
+      - /var/log/auth.log
+
+output.logstash:
+  hosts: ["<IP-ODER-HOSTNAME-VON-LOGSTASH>:5044"]
+  ssl.enabled: true
+  ssl.certificate_authorities: ["/etc/filebeat/certs/ca.crt"]
+  ssl.certificate: "/etc/filebeat/certs/filebeat.crt"
+  ssl.key: "/etc/filebeat/certs/filebeat.key"
+
+# Hinweis: Ersetze <IP-ODER-HOSTNAME-VON-LOGSTASH> mit der echten IP oder dem DNS-Namen deines Logstash-Servers (z. B. 10.10.0.10).
+# Passe die Zertifikatpfade ggf. an dein System an.
