@@ -7,16 +7,16 @@ Dieses Projekt realisiert ein zentrales Log-Management-System auf Basis des **EL
 ## Projektstruktur
 
 elk-logging/
-├── architecture/ # Architektur- und Datenflussdiagramme (Mermaid)
+├── architecture/ 
 │ └── datenfluss.mmd
-├── configs/ # Konfigurationsdateien für Beats
+├── configs/ 
 │ ├── filebeat.yml
 │ └── winlogbeat.yml
-├── docs/ # Projektdokumentation
+├── docs/ 
 │ └── projektbeschreibung.md
-├── screenshots/ # Screenshots zur Dokumentation und Präsentation
-├── .gitignore # Git-Ausnahmen
-└── README.md # Diese Datei
+├── screenshots/ 
+├── .gitignore 
+└── README.md 
 
 
 
@@ -30,7 +30,7 @@ elk-logging/
 | Kibana        | 7.17.x   | Dashboard-basierte Visualisierung der Logs    |
 | Filebeat      | 7.17.x   | Lightweight Log-Shipper für Linux-Systeme     |
 | Winlogbeat    | 7.17.x   | Spezieller Log-Shipper für Windows Event Logs |
----------------------------------------------------------------------------
+
 
 ## Sicherheit (TLS / Authentifizierung)
 
@@ -41,10 +41,10 @@ Die Authentifizierung erfolgt über die integrierte Benutzerverwaltung von Elast
 
 # Infrastructure
 
- **Hypervisor:** Proxmox VE
-- **Container:** 
-  - `elk-container` mit Elasticsearch + Kibana
-- **Virtuelle Maschinen (VMs):** 
+ Hypervisor: Proxmox VE
+- Container: 
+  - `elk-container` mit Elasticsearch & Kibana
+- Virtuelle Maschinen (VMs):
   - Ubuntu-VM mit Filebeat 
   - Windows Server VM mit Winlogbeat
 
@@ -64,19 +64,45 @@ Das Datenflussdiagramm in [`architecture/datenfluss.mmd`](architecture/datenflus
 
 
 
-## Status
+## Projektstatus
 
-✅ Elasticsearch läuft
+ Elasticsearch läuft mit Authentifizierung
 
-✅ Filebeat sendet Logs
+ TLS-Zertifikate erstellt und eingebunden
 
-✅ Winlogbeat funktioniert
+ Filebeat sendet Logs erfolgreich
 
-✅ Dashboards in Kibana eingerichtet
+ Winlogbeat funktioniert wie erwartet
+
+ Kibana-Dashboards eingerichtet
+
+## Projektstatus
+
+✅ Elasticsearch läuft mit Authentifizierung
+
+✅ TLS-Zertifikate erstellt und eingebunden
+
+✅ Filebeat sendet Logs erfolgreich
+
+✅ Winlogbeat funktioniert wie erwartet
+
+✅ Kibana-Dashboards eingerichtet
+
 
 ## Dokumentation
 
 Die ausführliche Projektdokumentation mit Hintergrund, Architektur, Sicherheitsaspekten und Ergebnissen befindet sich in [`docs/projektbeschreibung.md`](docs/projektbeschreibung.md).
+
+Enthalten sind:
+
+✅ Zielsetzung und Motivation
+
+✅ Netzwerk- & Systemarchitektur
+
+✅ Sicherheitskonzept (TLS, Auth)
+
+✅ Evaluierung und Tests
+
 
 ## Screenshots
 
