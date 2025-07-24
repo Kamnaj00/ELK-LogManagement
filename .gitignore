@@ -1,3 +1,38 @@
-venv/
-*.log
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
+
+# Editor-Dateien
+.vscode/
+*.swp
+*.swo
+
+# Python-bezogene (falls Skripte vorhanden)
 __pycache__/
+*.pyc
+venv/
+
+# Log-Dateien
+*.log
+
+# Beats eigene temporäre Dateien
+*.yml.save
+*.yml~
+
+# Kibana Downloads oder temporäre Dateien (falls)
+.kibana/
+.kibana_*
+
+# Secrets oder Konfigurationsdateien mit sensiblen Daten (wenn vorhanden)
+secrets.yml
+*.key
+*.pem
+
+# Backup Dateien
+*.bak
+*.backup
+
+# Windows spezifisch
+ehthumbs.db
+Desktop.ini
+
