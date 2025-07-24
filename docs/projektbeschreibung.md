@@ -73,7 +73,7 @@ Elasticsearch nutzt die integrierte Benutzerverwaltung:
 - TLS-Verbindung mit Beats
 - Optionale Filter zur Formatierung der Logs
 
-4.3. Filebeat (Linux)
+Filebeat (Linux)
 
 ```yaml
 
@@ -88,7 +88,8 @@ output.logstash:
   ssl.certificate_authorities: ["/etc/filebeat/certs/ca.crt"]
 
 
-4.4. Winlogbeat (Windows)
+
+Winlogbeat (Windows)
 
 ```yaml
 
