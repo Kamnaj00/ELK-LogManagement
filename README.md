@@ -62,20 +62,6 @@ Das Datenflussdiagramm in [`architecture/datenfluss.mmd`](architecture/datenflus
 5. **Kibana starten und Dashboards einrichten** 
 
 
-
-
-## Projektstatus
-
- Elasticsearch läuft mit Authentifizierung
-
- TLS-Zertifikate erstellt und eingebunden
-
- Filebeat sendet Logs erfolgreich
-
- Winlogbeat funktioniert wie erwartet
-
- Kibana-Dashboards eingerichtet
-
 ## Projektstatus
 
 ✅ Elasticsearch läuft mit Authentifizierung
