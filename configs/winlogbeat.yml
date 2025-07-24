@@ -1,4 +1,3 @@
-```yaml
 
 winlogbeat.event_logs:
   - name: Application
@@ -13,4 +12,4 @@ output.logstash:
   ssl.key: "C:/Program Files/Winlogbeat/certs/winlogbeat.key"
 
 
-"Achte darauf, dass sich die Zertifikate im richtigen Ordner auf dem Windows-System befinden und Pfade stimmen."
+# Achte darauf, dass sich die Zertifikate im richtigen Ordner auf dem Windows-System befinden und Pfade stimmen.
