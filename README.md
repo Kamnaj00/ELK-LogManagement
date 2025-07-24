@@ -15,25 +15,25 @@ Dieses Projekt realisiert ein zentrales Log-Management-System auf Basis des **EL
   - Windows Server VM mit Winlogbeat
 
 
+## Status
+
+✅ Elasticsearch läuft
+
+✅ Filebeat sendet Logs
+
+✅ Winlogbeat funktioniert
+
+✅ Dashboards in Kibana eingerichtet
+
+
+
 ## Datenfluss
 
-
- ```mermaid
-
- graph TD
+```mermaid
+graph TD
   Windows[Windows Server + Winlogbeat] -->|Logs| Elasticsearch
   Ubuntu[Ubuntu VM + Filebeat] -->|Logs| Elasticsearch
   Elasticsearch --> Kibana[Kibana Dashboard]
 
-
-## Status
-
-✅ Elasticsearch läuft  
-
-✅ Filebeat sendet Logs  
-
-✅ Winlogbeat funktioniert  
-
-✅ Dashboards in Kibana eingerichtet
 
 
