@@ -1,4 +1,38 @@
-graph TD
-  Windows[Windows Server mit Winlogbeat] -->|Logs| Elasticsearch
-  Ubuntu[Ubuntu VM mit Filebeat] -->|Logs| Elasticsearch
-  Elasticsearch --> Kibana[Kibana Dashboard]
+flowchart LR
+  %% === CLIENTS ===
+  subgraph Clients
+    A1[Winlogbeat<br/>Windows Server]
+    A2[Filebeat<br/>Ubuntu Client]
+  end
+
+  %% === PROCESSING ===
+  subgraph Verarbeitung
+    B0[Log-Pipeline<br/>Logstash]
+  end
+
+  %% === STORAGE ===
+  subgraph Speicherung
+    B1[Elasticsearch<br/>Log-Datenbank]
+  end
+
+  %% === VISUALIZATION ===
+  subgraph Visualisierung
+    C1[Kibana<br/>Dashboards]
+  end
+
+  %% === DATA FLOW ===
+  A1 -->|Windows Eventlogs| B0
+  A2 -->|Syslog & Audit Logs| B0
+  B0 -->|Geparste Logdaten| B1
+  B1 -->|Visualisierte Daten| C1
+
+  %% === STYLES ===
+  classDef client fill:#e6f7ff,stroke:#007acc,stroke-width:2px,color:#000;
+  classDef processing fill:#fff7e6,stroke:#ff9900,stroke-width:2px,color:#000;
+  classDef storage fill:#e6ffe6,stroke:#33cc33,stroke-width:2px,color:#000;
+  classDef visualization fill:#fff0f5,stroke:#cc3399,stroke-width:2px,color:#000;
+
+  class A1,A2 client;
+  class B0 processing;
+  class B1 storage;
+  class C1 visualization;
