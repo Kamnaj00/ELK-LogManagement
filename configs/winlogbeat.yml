@@ -1,0 +1,14 @@
+winlogbeat.event_logs:
+  - name: Application
+  - name: Security
+  - name: System
+
+output.logstash:
+  hosts: ["<IP-ODER-HOSTNAME-VON-LOGSTASH>:5044"]
+  ssl.enabled: true
+  ssl.certificate_authorities: ["C:/Program Files/Winlogbeat/certs/ca.crt"]
+  ssl.certificate: "C:/Program Files/Winlogbeat/certs/winlogbeat.crt"
+  ssl.key: "C:/Program Files/Winlogbeat/certs/winlogbeat.key"
+
+
+"Achte darauf, dass sich die Zertifikate im richtigen Ordner auf dem Windows-System befinden und Pfade stimmen."
